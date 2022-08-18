@@ -8,6 +8,20 @@ contract('StarNotary', (accs) => {
     owner = accounts[0];
 });
 
+it('has the right name', async() => {
+    let name = "Star Notary Token";
+    let instance = await StarNotary.deployed();
+    let tokenName = await instance.name();
+    assert.equal(name, tokenName);
+});
+
+it('has the right symbol', async() => {
+    let name = "SNT";
+    let instance = await StarNotary.deployed();
+    let tokenName = await instance.symbol();
+    assert.equal(name, tokenName);
+});
+
 it('can Create a Star', async() => {
     let tokenId = 1;
     let instance = await StarNotary.deployed();
