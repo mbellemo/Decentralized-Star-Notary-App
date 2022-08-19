@@ -4,7 +4,7 @@
 ### Solution
 1. Your ERC-721 Token Name
 
-Token Name is "Star Notary Token";
+- Token Name is "Star Notary Token";
 
 2. Your ERC-721 Token Symbol
 
