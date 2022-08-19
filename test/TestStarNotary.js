@@ -8,20 +8,6 @@ contract('StarNotary', (accs) => {
     owner = accounts[0];
 });
 
-it('has the right name', async() => {
-    let name = "Star Notary Token";
-    let instance = await StarNotary.deployed();
-    let tokenName = await instance.name();
-    assert.equal(name, tokenName);
-});
-
-it('has the right symbol', async() => {
-    let name = "SNT";
-    let instance = await StarNotary.deployed();
-    let tokenName = await instance.symbol();
-    assert.equal(name, tokenName);
-});
-
 it('can create a Star', async() => {
     let tokenId = 1;
     let instance = await StarNotary.deployed();
@@ -92,6 +78,18 @@ it('lets user2 buy a star and decreases its balance in ether', async() => {
     const balanceAfterUser2BuysStar = await web3.eth.getBalance(user2);
     let value = Number(balanceOfUser2BeforeTransaction) - Number(balanceAfterUser2BuysStar);
     assert.equal(value, starPrice);
+});
+
+it('can add the star name and star symbol properly', async() => {
+    let name = "Star Notary Token";
+    let symbol = "SNT";
+
+    let instance = await StarNotary.deployed();
+    let tokenName = await instance.name();
+    assert.equal(name, tokenName);
+
+    let tokenSymbol = await instance.symbol();
+    assert.equal(symbol, tokenSymbol);
 });
 
 // Implement Task 2 Add supporting unit tests
